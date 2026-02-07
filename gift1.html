@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title> ily 3000</title>
+  <title>Gift 1</title>
 
   <!-- Cute font (similar to inspo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,14 +39,14 @@
       padding:28px 22px;
     }
 
+    /* Make side columns narrower + closer to the center card */
     .grid{
       display:grid;
-      grid-template-columns: 1fr 1.2fr 1fr;
-      gap:22px;
+      grid-template-columns: minmax(210px, 1fr) auto minmax(210px, 1fr);
+      gap:12px;                 /* closer */
       align-items:center;
     }
 
-    /* keep your current quote positions (you said they are ideal) */
     .stack{
       display:grid;
       gap:14px;
@@ -65,25 +65,27 @@
       box-shadow: 0 10px 18px rgba(0,0,0,.06);
     }
 
-    /* Decorative circle slots */
+    /* Decorative circle slots: dashed border like quotes */
     .deco-slot{
       width:min(270px, 26vw);
       aspect-ratio: 1 / 1;
       margin: 6px auto;
       border-radius: 999px;
-      border: 3px solid rgba(216,90,120,.35);
-      background: rgba(255,255,255,.14);
+      border:2px dashed rgba(216,90,120,.35);    /* dashed like quotes */
+      background: rgba(255,255,255,.22);
       display:grid;
       place-items:center;
       overflow:hidden;
       box-shadow: 0 12px 20px rgba(0,0,0,.06);
     }
+
+    /* Make image perfectly centered and fill the circle (no pink gaps) */
     .deco-slot img{
-      width: 92%;
-      height: 92%;
-      object-fit: contain;
+      width:100%;
+      height:100%;
+      object-fit: cover;         /* fills the circle */
+      object-position: center;   /* centers */
       display:block;
-      filter: drop-shadow(0 10px 16px rgba(0,0,0,.10));
     }
 
     .center{
@@ -155,22 +157,26 @@
       overflow:hidden;
       backface-visibility:hidden;
       box-shadow: 0 18px 30px rgba(0,0,0,.18);
-      background: rgba(255,255,255,.35);
+      background: rgba(255,255,255,.20);
       border: 2px solid rgba(216,90,120,.18);
     }
     .flip-back{ transform: rotateY(180deg); }
 
+    /* Make the photo touch the card edges (no side empty columns) */
     .card-img{
       width:100%;
       height:100%;
-      object-fit: contain;             /* show full image */
-      background: rgba(255,255,255,.15);
+      object-fit: cover;          /* fills the card, no empty columns */
+      object-position: center;
       display:block;
     }
 
     /* Mobile layout */
     @media (max-width:820px){
-      .grid{ grid-template-columns: 1fr; gap:18px; }
+      .grid{
+        grid-template-columns: 1fr;
+        gap:18px;
+      }
       .quote{ font-size:20px; }
       .flip{ width:min(420px, 78vw); }
       .deco-slot{ width:min(280px, 70vw); }
@@ -186,7 +192,6 @@
       <div class="stack reveal delay-2">
         <div class="quote">Baby, take my hand</div>
 
-        <!-- left decorative circle -->
         <div class="deco-slot" aria-label="left decoration">
           <img src="assets/imkitty.png" alt="imkitty" />
         </div>
@@ -196,10 +201,7 @@
 
       <!-- CENTER (flip card) -->
       <div class="center reveal delay-3">
-        <!-- Put these images in /assets:
-             front: assets/center.png
-             back : assets/center_ours.png   (or .png - just match extension below)
-        -->
+        <!-- assets/center.png (front) + assets/center_ours.png -->
         <div class="flip" id="flipCard" aria-label="flip card">
           <div class="flip-inner">
             <div class="flip-face flip-front">
@@ -216,7 +218,6 @@
       <div class="stack reveal delay-4">
         <div class="quote">Cause you're my Iron Man</div>
 
-        <!-- right decorative circle -->
         <div class="deco-slot" aria-label="right decoration">
           <img src="assets/dpkitty.png" alt="dpkitty" />
         </div>
@@ -226,7 +227,6 @@
 
     </section>
 
-    <!-- NAV -->
     <nav class="nav reveal delay-5" aria-label="navigation">
       <a class="btn" href="gifts.html">← gifts</a>
       <a class="btn" href="gift2.html">next →</a>
