@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gifts</title>
+  <style>
+    :root{
+      --bg:#ffd3df; --accent:#d85a78;
+      --tile:#f2a4b8; --tile2:#f6b4c6;
+      --shadow:0 10px 30px rgba(0,0,0,.12);
+      --font: ui-rounded, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    }
+    body{ margin:0; font-family:var(--font); background:var(--bg); min-height:100vh; display:grid; place-items:center; padding:24px; color:#6b1f33; }
+    .wrap{ width:min(980px,100%); background:rgba(255,255,255,.25); border:2px solid rgba(216,90,120,.25); border-radius:28px; box-shadow:var(--shadow); padding:28px; }
+    h1{ margin:0; color:var(--accent); text-align:center; font-size:clamp(28px,4vw,54px); }
+    p{ margin:10px 0 22px; text-align:center; opacity:.85; }
+    .grid{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px; margin-top:10px; }
+    a.gift{
+      display:grid; place-items:center;
+      text-decoration:none; color:#fff;
+      height:120px;
+      border-radius:18px;
+      background:linear-gradient(180deg, var(--tile2), var(--tile));
+      box-shadow:0 12px 20px rgba(216,90,120,.22);
+      font-weight:900;
+      transition:transform .12s ease, filter .12s ease;
+    }
+    a.gift:hover{ transform:translateY(-2px); filter:saturate(1.05); }
+    .row{ display:flex; justify-content:center; margin-top:18px; }
+    .back{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:10px 14px; border-radius:999px;
+      background:rgba(255,255,255,.35);
+      border:1px solid rgba(216,90,120,.25);
+      text-decoration:none; color:#6b1f33;
+      font-weight:800;
+    }
+    @media (max-width:760px){
+      .grid{ grid-template-columns:1fr; }
+      a.gift{ height:92px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Yay, you said yes!</h1>
+    <p>I made these for you hehe</p>
+
+    <section class="grid">
+      <a class="gift" href="gift1.html">Gift 1</a>
+      <a class="gift" href="gift2.html">Gift 2</a>
+      <a class="gift" href="gift3.html">Gift 3</a>
+    </section>
+
+    <div class="row">
+      <a class="back" href="index.html">← back</a>
+    </div>
+  </main>
+</body>
+</html>
