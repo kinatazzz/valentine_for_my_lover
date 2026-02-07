@@ -7,6 +7,7 @@
   <style>
     :root{
       --decorScale: 3;
+      --cuteScale: 3;
       --bg:#ffd3df;
       --accent:#d85a78;
       --btn:#f2a4b8;
@@ -73,7 +74,7 @@
     }
 
     .cute-top{
-      width: calc(min(140px, 22vw) * var(--decorScale));
+      width: calc(min(140px, 22vw) * var(--cuteScale));
       height:auto;
       margin-bottom:2px;
       filter: drop-shadow(0 10px 18px rgba(0,0,0,.10));
@@ -134,10 +135,9 @@
 
     /* Mobile tweaks so decor doesn't cover content */
     @media (max-width:520px){
-      .hearts-left{ width:120px; }
-      .feb{ width:150px; }
-      .plane{ width:170px; }
-      .choco{ width:150px; }
+      :root{ 
+        --cuteScale: 1.6; 
+        --decorScale: 1.2; 
     }
   </style>
 </head>
