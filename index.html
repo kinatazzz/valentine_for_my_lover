@@ -129,3 +129,21 @@
     yesBtn.addEventListener("click", () => {
       location.href = yesHref;
     });
+noBtn.addEventListener("click", () => {
+      noClicks++;
+
+      // change NO text
+      const idx = Math.min(noClicks, noTexts.length - 1);
+      noBtn.textContent = noTexts[idx];
+
+      // grow YES
+      yesScale = Math.min(yesScale + 0.18, 2.6);
+      yesBtn.style.transform = `scale(${yesScale})`;
+
+      // slightly shrink NO (optional, looks fun)
+      const noScale = Math.max(1 - noClicks * 0.06, 0.72);
+      noBtn.style.transform = `scale(${noScale})`;
+    });
+  </script>
+</body>
+</html>
