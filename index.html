@@ -6,6 +6,7 @@
   <title>Valentine?</title>
   <style>
     :root{
+      --decorScale: 3;
       --bg:#ffd3df;
       --accent:#d85a78;
       --btn:#f2a4b8;
@@ -42,21 +43,21 @@
     }
     .hearts-left{
       left:40px; top:10px;
-      width:min(260px, 30vw);
+      width: calc(min(260px, 30vw) * var(--decorScale));
     }
     .feb{
       right:55px; top:20px;
-      width:min(260px, 30vw);
+      width: calc(min(260px, 30vw) * var(--decorScale));
       transform: rotate(8deg);
     }
     .plane{
       left:55px; bottom:50px;
-      width:min(320px, 38vw);
+      width: calc(min(320px, 38vw) * var(--decorScale));
       opacity:.95;
     }
     .choco{
       right:55px; bottom:45px;
-      width:min(320px, 38vw);
+      width: calc(min(320px, 38vw) * var(--decorScale));
     }
 
     /* Main content */
