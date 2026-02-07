@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>I love you 3000 </title>
+  <title>I love you 3000</title>
 
   <!-- Cute font (similar to inspo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,10 +46,13 @@
       align-items:center;
     }
 
+    /* More space for future images + non-mirrored quote levels */
     .stack{
-      display:grid;
-      gap:14px;
-      justify-items:stretch;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height: 520px;
+      gap: 26px;
     }
 
     .quote{
@@ -62,6 +65,12 @@
       line-height:1.1;
       box-shadow: 0 10px 18px rgba(0,0,0,.06);
     }
+
+    .left-top{ margin-top: 0px; }
+    .left-bot{ margin-top: 90px; }
+
+    .right-top{ margin-top: 35px; }
+    .right-bot{ margin-top: 140px; }
 
     .center{
       display:grid;
@@ -142,25 +151,14 @@
       object-fit: cover;
       display:block;
     }
-    .tap{
-      position:absolute;
-      left:50%;
-      bottom:10px;
-      transform:translateX(-50%);
-      font-size:18px;
-      padding:6px 12px;
-      border-radius:999px;
-      background: rgba(255,255,255,.55);
-      border:1px solid rgba(216,90,120,.25);
-      color: var(--text);
-    }
 
     /* Mobile layout */
     @media (max-width:820px){
-
-    .grid{ grid-template-columns: 1fr; gap:18px; }
+      .grid{ grid-template-columns: 1fr; gap:18px; }
       .quote{ font-size:20px; }
       .flip{ width:min(420px, 78vw); }
+      .stack{ min-height: auto; }
+      .left-bot,.right-top,.right-bot{ margin-top: 0; }
     }
   </style>
 </head>
@@ -171,21 +169,20 @@
 
       <!-- LEFT -->
       <div class="stack reveal delay-2">
-        <div class="quote">Baby, take my hand</div>
-        <div class="quote">I want you to be my husband</div>
+        <div class="quote left-top">Baby, take my hand</div>
+        <div class="quote left-bot">I want you to be my husband</div>
       </div>
 
       <!-- CENTER (flip card) -->
       <div class="center reveal delay-3">
         <!-- Put these images in /assets:
              front: assets/center.png
-             back : assets/center_ours.png
+             back : assets/center_ours.png   (or .png - just match extension below)
         -->
         <div class="flip" id="flipCard" aria-label="flip card">
           <div class="flip-inner">
             <div class="flip-face flip-front">
               <img class="card-img" src="assets/center.png" alt="front" />
-              <div class="tap">tap to flip</div>
             </div>
             <div class="flip-face flip-back">
               <img class="card-img" src="assets/center_ours.png" alt="ours" />
@@ -196,8 +193,8 @@
 
       <!-- RIGHT -->
       <div class="stack reveal delay-4">
-        <div class="quote">Cause you're my Iron Man</div>
-        <div class="quote">And I love you 3000</div>
+        <div class="quote right-top">Cause you're my Iron Man</div>
+        <div class="quote right-bot">And I love you 3000</div>
       </div>
 
     </section>
