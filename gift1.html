@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gift 1</title>
+  <style>
+    :root{ --bg:#ffd3df; --accent:#d85a78; --shadow:0 10px 30px rgba(0,0,0,.12); --font: ui-rounded, system-ui, -apple-system, "Segoe UI", Arial, sans-serif; }
+    body{ margin:0; font-family:var(--font); background:var(--bg); min-height:100vh; display:grid; place-items:center; padding:24px; color:#6b1f33; }
+    .wrap{ width:min(1020px,100%); background:rgba(255,255,255,.25); border:2px solid rgba(216,90,120,.25); border-radius:28px; box-shadow:var(--shadow); padding:22px; }
+    h1{ margin:6px 0 14px; text-align:center; color:var(--accent); }
+    .layout{ display:grid; grid-template-columns: 1fr 1.3fr 1fr; gap:14px; align-items:center; }
+    .bubble{
+      background:rgba(255,255,255,.45);
+      border:1px solid rgba(216,90,120,.25);
+      border-radius:18px;
+      padding:14px;
+      min-height:110px;
+      display:grid; gap:10px;
+      box-shadow:0 10px 16px rgba(0,0,0,.06);
+    }
+    .line{ padding:10px 12px; border-radius:14px; background:rgba(255,255,255,.55); border:1px dashed rgba(216,90,120,.35); }
+    .img{ display:grid; place-items:center; padding:10px; }
+    img{
+      max-width:100%;
+      height:auto;
+      border-radius:18px;
+      box-shadow:0 14px 24px rgba(0,0,0,.16);
+      background:#fff;
+    }
+    .nav{ display:flex; gap:10px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+    a{ text-decoration:none; color:#6b1f33; font-weight:800; padding:10px 14px; border-radius:999px; background:rgba(255,255,255,.35); border:1px solid rgba(216,90,120,.25); }
+    @media (max-width:900px){ .layout{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Gift 1</h1>
+
+    <section class="layout">
+      <div class="bubble">
+        <div class="line">Your quote #1 goes here…</div>
+        <div class="line">Your quote #2 goes here…</div>
+      </div>
+
+      <div class="img">
+        <img src="assets/deadpool.png" alt="Deadpool Love" />
+      </div>
+
+      <div class="bubble">
+        <div class="line">Your quote #3 goes here…</div>
+        <div class="line">Your quote #4 goes here…</div>
+      </div>
+    </section>
+
+    <nav class="nav">
+      <a href="gifts.html">← gifts</a>
+      <a href="gift2.html">next →</a>
+    </nav>
+  </main>
+</body>
+</html>
