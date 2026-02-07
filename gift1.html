@@ -20,6 +20,7 @@
     }
     *{ box-sizing:border-box; }
     body{
+      position:relative;
       margin:0;
       min-height:100vh;
       display:grid;
@@ -30,7 +31,25 @@
       font-family:var(--font);
     }
 
+    /* corner hearts */
+    .corner-heart{
+      position: fixed;
+      z-index: 0;
+      pointer-events: none;
+      width: min(180px, 22vw);
+      height: auto;
+      opacity: .95;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.10));
+    }
+    .heart-lt{ left:14px; top:14px; }
+    .heart-lb{ left:14px; bottom:14px; }
+    .heart-rt{ right:14px; top:14px; }
+    .heart-rb{ right:14px; bottom:14px; }
+
+/* make sure your content is above */
     .frame{
+      position:relative; 
+      z-index:1;
       width:min(980px, 100%);
       background: transparent;
       border: 0;
@@ -191,17 +210,21 @@
 </head>
 
 <body>
+  <!-- CORNER HEARTS (put files in assets/: heart_left.png + heart_right.png) -->
+  <img class="corner-heart heart-lt" src="assets/heart_left.png" alt="">
+  <img class="corner-heart heart-lb" src="assets/heart_left.png" alt="">
+  <img class="corner-heart heart-rt" src="assets/heart_right.png" alt="">
+  <img class="corner-heart heart-rb" src="assets/heart_right.png" alt="">
+
   <main class="frame">
     <section class="grid">
 
       <!-- LEFT -->
       <div class="stack reveal delay-2">
         <div class="quote">Baby, take my hand</div>
-
         <div class="deco-slot">
           <img class="deco-img-left" src="assets/imkitty.png" alt="imkitty">
         </div>
-
         <div class="quote">I want you to be my husband</div>
       </div>
 
@@ -223,11 +246,9 @@
       <!-- RIGHT -->
       <div class="stack reveal delay-4">
         <div class="quote">Cause you're my Iron Man</div>
-
         <div class="deco-slot" aria-label="right decoration">
           <img src="assets/dpkitty.png" alt="dpkitty" />
         </div>
-
         <div class="quote">And I love you 3000</div>
       </div>
 
