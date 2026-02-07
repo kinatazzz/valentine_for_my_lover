@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Valentine?</title>
+  <style>
+    :root{
+      --bg:#ffd3df;
+      --accent:#d85a78;
+      --btn:#f2a4b8;
+      --btn2:#f6b4c6;
+      --shadow:0 10px 30px rgba(0,0,0,.12);
+      --font: ui-rounded, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    }
+    body{
+      margin:0; font-family:var(--font);
+      background: radial-gradient(1200px 600px at 50% -200px, #fff 0%, var(--bg) 55%);
+      color:#6b1f33;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      padding:24px;
+      overflow-x:hidden;
+    }
+    .wrap{
+      width:min(980px, 100%);
+      background:rgba(255,255,255,.25);
+      border:2px solid rgba(216,90,120,.25);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:28px;
+      position:relative;
+    }
+    .hearts{
+      position:absolute; inset:-20px -20px auto auto;
+      font-size:22px; opacity:.35;
+      transform:rotate(12deg);
+      user-select:none;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(26px, 4vw, 42px);
+      text-align:center;
+      color:var(--accent);
+      letter-spacing:.3px;
+    }
+    p{
+      margin:0 0 18px;
+      text-align:center;
+      opacity:.85;
+    }
+    .row{
+      display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+      margin-top:18px;
+      align-items:center;
+    }
+    button{
+      border:0;
+      padding:14px 20px;
+      border-radius:999px;
+      background:linear-gradient(180deg, var(--btn2), var(--btn));
+      color:#6b1f33;
+      font-weight:800;
+      letter-spacing:.4px;
+      min-width:190px;
+      box-shadow:0 10px 18px rgba(216,90,120,.22);
+      cursor:pointer;
+      transition:transform .12s ease, filter .12s ease;
+      transform-origin:center;
+    }
+    button:hover{ transform:translateY(-1px); filter:saturate(1.05); }
+    button:active{ transform:translateY(1px); }
+    .tiny{
+      margin-top:10px;
+      font-size:13px;
+      opacity:.65;
+    }
+    .decor-left{
+      position:absolute; left:-8px; top:20px; opacity:.55; user-select:none;
+      font-size:18px;
+    }
+    .decor-right{
+      position:absolute; right:-8px; bottom:14px; opacity:.55; user-select:none;
+      font-size:18px;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="hearts">♥ ♥ ♥ ♥ ♥</div>
+    <div class="decor-left">♥ ♥ ♥<br/>♥ ♥</div>
+    <div class="decor-right">♥ ♥ ♥<br/>♥ ♥</div>
+
+    <h1>Hey there,<br/>Will you be my Valentine?</h1>
+    <p>Just a tiny question with a big answer.</p>
+
+    <div class="row">
+      <button id="yesBtn" type="button">YES OF COURSE</button>
+      <button id="noBtn" type="button">NO THANK YOU</button>
+    </div>
+
+    <p class="tiny">Made with love ♡</p>
+  </main>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn  = document.getElementById("noBtn");
+
+    // YES goes here:
+    const yesHref = "gifts.html";
+
+    // NO button text escalation:
+    const noTexts = [
+      "NO THANK YOU",
+      "nooo pls",
+      "nooo pls no",
+      "i beg you",
+      "stoop it",
+      "it is not funny",
+      "PLEASE??",
+      "okay... maybe?",
+      "don’t do this to me"
+    ];
+
+    let noClicks = 0;
+    let yesScale = 1;
+
+    yesBtn.addEventListener("click", () => {
+      location.href = yesHref;
+    });
